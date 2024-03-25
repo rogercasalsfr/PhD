@@ -1,0 +1,187 @@
+---
+title: "Seurattopython"
+author: "Roger Casals"
+date: "2024-03-15"
+output: html_document
+---
+
+# Pre cd8
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(Matrix)
+
+
+
+CD4totssubsetpre <- LoadH5Seurat("/home/roger/Baixades/precd8.h5seurat")
+NML <- CD4totssubsetpre
+
+counts_matrix <- GetAssayData(NML, assay = "RNA", layer="counts")
+writeMM(counts_matrix, file=paste0(file="/home/roger/Github/Master_thesis/python/precd8/matrix.mtx"))
+
+
+write.csv(NML@reductions$pca@cell.embeddings, file = "/home/roger/Github/Master_thesis/python/precd8/pca.csv", quote=F, row.names=F)
+
+write.table(data.frame("gene"=rownames(counts_matrix)), file = "/home/roger/Github/Master_thesis/python/precd8/gene_names.csv", quote=F, row.names=F, col.names=F)
+
+
+NML$barcode <- colnames(NML)
+NML$UMAP_1 <- NML@reductions$umap@cell.embeddings[,1]
+NML$UMAP_2 <- NML@reductions$umap@cell.embeddings[,2]
+write.csv(NML@meta.data, file="/home/roger/Github/Master_thesis/python/precd8/metadata.csv", quote=F, row.names=F)
+
+```
+
+
+
+# tots cd8
+
+
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(Matrix)
+
+
+
+CD4totssubsetpre <- LoadH5Seurat("/home/roger/Baixades/totscd8.h5seurat")
+NML <- CD4totssubsetpre
+
+counts_matrix <- GetAssayData(NML, assay = "RNA", layer="counts")
+writeMM(counts_matrix, file=paste0(file="/home/roger/Github/Master_thesis/python/totscd8/matrix.mtx"))
+
+
+write.csv(NML@reductions$pca@cell.embeddings, file = "/home/roger/Github/Master_thesis/python/totscd8/pca.csv", quote=F, row.names=F)
+
+write.table(data.frame("gene"=rownames(counts_matrix)), file = "/home/roger/Github/Master_thesis/python/totscd8/gene_names.csv", quote=F, row.names=F, col.names=F)
+
+
+NML$barcode <- colnames(NML)
+NML$UMAP_1 <- NML@reductions$umap@cell.embeddings[,1]
+NML$UMAP_2 <- NML@reductions$umap@cell.embeddings[,2]
+write.csv(NML@meta.data, file="/home/roger/Github/Master_thesis/python/totscd8/metadata.csv", quote=F, row.names=F)
+
+```
+
+
+# post cd8
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(Matrix)
+
+
+
+CD4totssubsetpre <- LoadH5Seurat("/home/roger/Baixades/postcd8.h5seurat")
+NML <- CD4totssubsetpre
+
+counts_matrix <- GetAssayData(NML, assay = "RNA", layer="counts")
+writeMM(counts_matrix, file=paste0(file="/home/roger/Github/Master_thesis/python/postcd8/matrix.mtx"))
+
+
+write.csv(NML@reductions$pca@cell.embeddings, file = "/home/roger/Github/Master_thesis/python/postcd8/pca.csv", quote=F, row.names=F)
+
+write.table(data.frame("gene"=rownames(counts_matrix)), file = "/home/roger/Github/Master_thesis/python/postcd8/gene_names.csv", quote=F, row.names=F, col.names=F)
+
+
+NML$barcode <- colnames(NML)
+NML$UMAP_1 <- NML@reductions$umap@cell.embeddings[,1]
+NML$UMAP_2 <- NML@reductions$umap@cell.embeddings[,2]
+write.csv(NML@meta.data, file="/home/roger/Github/Master_thesis/python/postcd8/metadata.csv", quote=F, row.names=F)
+
+```
+
+
+# pre cd4
+
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(Matrix)
+
+
+
+CD4totssubsetpre <- LoadH5Seurat("/home/roger/Baixades/pre.h5seurat")
+NML <- CD4totssubsetpre
+
+counts_matrix <- GetAssayData(NML, assay = "RNA", layer="counts")
+writeMM(counts_matrix, file=paste0(file="/home/roger/Github/Master_thesis/python/precd4/matrix.mtx"))
+
+
+write.csv(NML@reductions$pca@cell.embeddings, file = "/home/roger/Github/Master_thesis/python/precd4/pca.csv", quote=F, row.names=F)
+
+write.table(data.frame("gene"=rownames(counts_matrix)), file = "/home/roger/Github/Master_thesis/python/precd4/gene_names.csv", quote=F, row.names=F, col.names=F)
+
+
+NML$barcode <- colnames(NML)
+NML$UMAP_1 <- NML@reductions$umap@cell.embeddings[,1]
+NML$UMAP_2 <- NML@reductions$umap@cell.embeddings[,2]
+write.csv(NML@meta.data, file="/home/roger/Github/Master_thesis/python/precd4/metadata.csv", quote=F, row.names=F)
+
+```
+
+
+# post cd4
+
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(Matrix)
+
+
+
+CD4totssubsetpre <- LoadH5Seurat("/home/roger/Baixades/post.h5seurat")
+NML <- CD4totssubsetpre
+
+counts_matrix <- GetAssayData(NML, assay = "RNA", layer="counts")
+writeMM(counts_matrix, file=paste0(file="/home/roger/Github/Master_thesis/python/postcd4/matrix.mtx"))
+
+
+write.csv(NML@reductions$pca@cell.embeddings, file = "/home/roger/Github/Master_thesis/python/postcd4/pca.csv", quote=F, row.names=F)
+
+write.table(data.frame("gene"=rownames(counts_matrix)), file = "/home/roger/Github/Master_thesis/python/postcd4/gene_names.csv", quote=F, row.names=F, col.names=F)
+
+
+NML$barcode <- colnames(NML)
+NML$UMAP_1 <- NML@reductions$umap@cell.embeddings[,1]
+NML$UMAP_2 <- NML@reductions$umap@cell.embeddings[,2]
+write.csv(NML@meta.data, file="/home/roger/Github/Master_thesis/python/postcd4/metadata.csv", quote=F, row.names=F)
+
+```
+
+
+
+# tots cd4
+
+```{r}
+library(Seurat)
+library(tidyverse)
+library(Matrix)
+
+
+
+CD4totssubsetpre <- LoadH5Seurat("/home/roger/Baixades/tots.h5seurat")
+NML <- CD4totssubsetpre
+
+counts_matrix <- GetAssayData(NML, assay = "RNA", layer="counts")
+writeMM(counts_matrix, file=paste0(file="/home/roger/Github/Master_thesis/python/totscd4/matrix.mtx"))
+
+
+write.csv(NML@reductions$pca@cell.embeddings, file = "/home/roger/Github/Master_thesis/python/totscd4/pca.csv", quote=F, row.names=F)
+
+write.table(data.frame("gene"=rownames(counts_matrix)), file = "/home/roger/Github/Master_thesis/python/totscd4/gene_names.csv", quote=F, row.names=F, col.names=F)
+
+
+NML$barcode <- colnames(NML)
+NML$UMAP_1 <- NML@reductions$umap@cell.embeddings[,1]
+NML$UMAP_2 <- NML@reductions$umap@cell.embeddings[,2]
+write.csv(NML@meta.data, file="/home/roger/Github/Master_thesis/python/totscd4/metadata.csv", quote=F, row.names=F)
+
+```
+
+
